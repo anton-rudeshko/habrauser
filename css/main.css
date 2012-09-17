@@ -1,0 +1,60 @@
+.habrauser {
+    overflow: hidden;
+    padding: 20px 5px 2px 10px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    border: 3px solid #F0F0E7;
+    position: absolute;
+    display: none;
+    z-index: 1000;
+    box-shadow:         3px 3px 10px #ddd;
+}
+
+.habrauser.loading {
+    height: 20px;
+    width: 40px;
+    background: #ffffff url("http://habrahabr.ru/i/form/loader_button.gif");
+}
+
+.user_header{padding-top:10px;padding-bottom:5px;margin-top:-17px;position: relative;}
+
+.user_header a.avatar{display:block;float:left;margin-right:11px;position: relative;}
+.user_header a.avatar img{}
+.user_header a.avatar b{display:block;width:48px;height:48px;background: url(/i/bg_avatar_mask.gif) no-repeat;position: absolute;top:0;left:0;}
+
+.user_header h2.username{float:left;margin-right:6px;font-size:36px;line-height:40px;}
+.user_header h2.username a{color:#343434;text-decoration: none;}
+
+.user_header .karma{float:left;margin-left: 20px;text-align:center;margin-top:-9px;}
+.user_header .karma .label{font-size:10px;color:#ccc;margin:0 auto;}
+.user_header .karma .score{}
+.user_header .karma .score .vote_plus{float:left;margin:0 3px;margin-top:3px;display:block;width:15px;height:26px;background: url(/i/icos/icons_vote_karma_big.gif) no-repeat 0 0;}
+.user_header .karma .score .vote_plus.voted{background: url(/i/icos/icons_vote_karma_big.gif) no-repeat 0 -27px;}
+.user_header .karma .score .vote_minus{float:left;margin:0 3px;margin-top:3px;display:block;width:15px;height:26px;background: url(/i/icos/icons_vote_karma_big.gif) no-repeat -16px 0;}
+.user_header .karma .score .vote_minus.voted{background: url(/i/icos/icons_vote_karma_big.gif) no-repeat -16px -27px;}
+.user_header .karma .score .num{float:left;font-size:36px;color:#6C6;line-height:32px;}
+.user_header .karma .votes{clear:left;font-size:10px;color:#ccc;margin:0 auto;padding-top:2px;}
+
+.user_header .give_invite{float:left;margin-top:8px;margin-left:20px;}
+
+.user_header .rating{float:left;margin-left: 20px;text-align:center;margin-top:-9px;}
+.user_header .rating .label{font-size:10px;color:#ccc;margin:0 auto;}
+.user_header .rating .num{font-size:36px;color:#CC66CC;line-height:32px;}
+
+.user_header .friending{float:left;margin-left: 35px;text-align:center;margin-top:8px;}
+.user_header .friending .add_friend{display:block;width:25px;height:25px;background: url(/i/user_add.gif) no-repeat;}
+.user_header .friending .remove_friend{display:none;width:25px;height:25px;background: url(/i/user_delete.gif) no-repeat;}
+.user_header .friending.friend{}
+.user_header .friending.friend .add_friend{display:none;}
+.user_header .friending.friend .remove_friend{display:block;}
+
+.user_header .friending .friend_request_form{display: none;width:400px;height:200px;position:absolute;top:10px;left:277px;background:#F0F0E7;-webkit-border-radius: 8px;-moz-border-radius: 8px;border-radius: 8px;z-index:100;}
+.user_header .friending .friend_request_form form{padding:5px;}
+.user_header .friending .friend_request_form form a.close{display:block;position:absolute;right:10px;top:3px;font-size:14px;color:#999;font-family:Verdana, sans-serif;text-decoration:none;}
+.user_header .friending .friend_request_form form a.close:hover{color:#000;}
+.user_header .friending .friend_request_form form h2{font-size:17px;color:#999;font-family:Verdana, sans-serif;}
+.user_header .friending .friend_request_form form textarea{width:380px;margin-top:5px;height:85px;}
+.user_header .friending .friend_request_form form .buttons{margin-top:22px;}
+
+.user_header .send_mail{display: block;float:left;margin-left:14px;margin-top:14px;width:38px;height:19px;background: url(/i/user_message.gif) no-repeat;}
+
