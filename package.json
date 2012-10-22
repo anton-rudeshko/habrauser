@@ -1,9 +1,9 @@
 {
     "name": "habrauser",
     "preferGlobal": "false",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "author": "Anton Rudeshko <anton@rudeshko.com>",
-    "description": "a simple zero-configuration command-line http server",
+    "description": "Open habrahabr.ru user info in a nice and useful popup",
     "dependencies": {
         "less": "1.3.0",
         "uglify-js": "1.3.3"
