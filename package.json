@@ -1,11 +1,10 @@
 {
     "name": "habrauser",
     "preferGlobal": "false",
-    "version": "0.0.2",
-    "author": "Anton Rudeshko <anton@rudeshko.com>",
+    "version": "0.0.3",
+    "author": "Anton Rudeshko aka Tesla <anton@rudeshko.com>",
     "description": "Open habrahabr.ru user info in a nice and useful popup",
     "dependencies": {
-        "less": "1.3.0",
         "uglify-js": "1.3.3"
     },
     "license": "MIT",
