@@ -1,5 +1,5 @@
 (function ($) {
-  "use strict";
+  'use strict';
 
   var userCache = [],
     karmaScriptInjected = false;
@@ -45,7 +45,7 @@
 
   function injectKarma(src) {
     var script = document.createElement('script');
-    script.type = "text/javascript";
+    script.type = 'text/javascript';
     script.src = src;
     document.body.appendChild(script);
     karmaScriptInjected = true;
@@ -67,8 +67,25 @@
     return false;
   }
 
-  $(function () {
+  function hookPopup() {
     $('.content_left').delegate('a.username, .author a', 'click', displayUserPopup);
-  });
+  }
+
+  function colorAuthor() {
+    var authorLink = $('.infopanel .author a').attr('href');
+    $('.content_left').find('a[href="' + authorLink + '"]').addClass('habrauser__author-comment').attr('title', 'Автор');
+  }
+
+  function colorTopComments() {
+    // todo: implement
+  }
+
+  function onLoad() {
+    colorAuthor();
+    colorTopComments();
+    hookPopup();
+  }
+
+  $(onLoad);
 
 }(jQuery));
