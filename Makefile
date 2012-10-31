@@ -5,7 +5,7 @@ LESS=$(NODE) node_modules/less/bin/lessc
 OUT=out
 PIX=src/pix
 VERSION=`cat src/version`
-MANIFEST_TEMPLATE=src/manifest.tmpl.json
+MANIFEST_TEMPLATE=src/manifest.json
 
 all: zip
 	@echo Done
@@ -25,8 +25,8 @@ copy-pictures: start
 minify-js: start
 	@echo Minifying JS
 	@mkdir $(OUT)/js
-	$(UJS) -o $(OUT)/js/main.js src/js/main.js
-	$(UJS) -o $(OUT)/js/loader.js src/js/loader.js
+	@$(UJS) -o $(OUT)/js/main.js src/js/main.js
+	@$(UJS) -o $(OUT)/js/loader.js src/js/loader.js
 
 minify-css: start
 	@echo Minifying CSS
@@ -35,7 +35,7 @@ minify-css: start
 
 manifest: start
 	@echo Creating manifest
-	@sed s/{{version}}/$(VERSION)/ $(MANIFEST_TEMPLATE) >> $(OUT)/manifest.json
+	@sed s/0\.0\.0\.0/$(VERSION)/ $(MANIFEST_TEMPLATE) >> $(OUT)/manifest.json
 
 start: clean
 	@echo Make output dir
