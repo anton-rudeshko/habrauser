@@ -13,7 +13,16 @@
 }
 
 .bordered {
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
+}
+
+.link, .link:visited {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #999;
 }
