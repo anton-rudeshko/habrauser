@@ -1,30 +1,34 @@
-function saveCheckboxById(id) {
-  localStorage[id] = document.getElementById(id).checked;
-}
+(function (document, localStorage) {
+  var userPopupId = 'user-popup',
+    highlightAuthor ='highlight-author',
+    highlightComments = 'highlight-comments';
 
-function loadCheckboxById(id) {
-  document.getElementById(id).checked = localStorage[id] === 'true';
-}
+  function saveCheckboxById(id) {
+    localStorage[id] = document.getElementById(id).checked;
+  }
 
-function saveOptions() {
-  saveCheckboxById('user-popup');
-  saveCheckboxById('highlight-author');
-  saveCheckboxById('highlight-comments');
+  function loadCheckboxById(id) {
+    document.getElementById(id).checked = localStorage[id] === 'true';
+  }
 
-  var status = document.getElementById('status');
-  status.innerHTML = 'Сохранено';
-  setTimeout(function () {
-    status.innerHTML = '';
-  }, 750);
-}
+  function saveOptions() {
+    saveCheckboxById(userPopupId);
+    saveCheckboxById(highlightAuthor);
+    saveCheckboxById(highlightComments);
 
-function loadOptions() {
-  loadCheckboxById('user-popup');
-  loadCheckboxById('highlight-author');
-  loadCheckboxById('highlight-comments');
-}
+    var status = document.getElementById('status');
+    status.innerHTML = 'Сохранено';
+    setTimeout(function () {
+      status.innerHTML = '';
+    }, 750);
+  }
 
-(function () {
+  function loadOptions() {
+    loadCheckboxById(userPopupId);
+    loadCheckboxById(highlightAuthor);
+    loadCheckboxById(highlightComments);
+  }
+
   var i,
     inputs = document.querySelectorAll('input'),
     length = inputs.length;
@@ -33,4 +37,4 @@ function loadOptions() {
   }
 
   loadOptions();
-}());
+}(document, localStorage));
