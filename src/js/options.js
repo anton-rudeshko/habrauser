@@ -1,5 +1,5 @@
 (function (document, localStorage) {
-  var userPopupId = 'user-popup',
+  var userPopup = 'user-popup',
     highlightAuthor ='highlight-author',
     highlightComments = 'highlight-comments';
 
@@ -7,12 +7,12 @@
     localStorage[id] = document.getElementById(id).checked;
   }
 
-  function loadCheckboxById(id) {
-    document.getElementById(id).checked = localStorage[id] === 'true';
+  function loadCheckboxById(id, defaultValue) {
+    document.getElementById(id).checked = (localStorage[id] || defaultValue) === 'true';
   }
 
   function saveOptions() {
-    saveCheckboxById(userPopupId);
+    saveCheckboxById(userPopup);
     saveCheckboxById(highlightAuthor);
     saveCheckboxById(highlightComments);
 
@@ -24,9 +24,9 @@
   }
 
   function loadOptions() {
-    loadCheckboxById(userPopupId);
-    loadCheckboxById(highlightAuthor);
-    loadCheckboxById(highlightComments);
+    loadCheckboxById(userPopup, 'true');
+    loadCheckboxById(highlightAuthor, 'true');
+    loadCheckboxById(highlightComments, 'false');
   }
 
   var i,
