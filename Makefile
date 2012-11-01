@@ -32,13 +32,14 @@ minify-js: start
 	@mkdir $(OUT)/js
 	@$(UJS) -o $(OUT)/js/main.js src/js/main.js
 	@$(UJS) -o $(OUT)/js/loader.js src/js/loader.js
-	@$(UJS) -o $(OUT)/js/loader.js src/js/background.js
-	@$(UJS) -o $(OUT)/js/loader.js src/js/options.js
+	@$(UJS) -o $(OUT)/js/background.js src/js/background.js
+	@$(UJS) -o $(OUT)/js/options.js src/js/options.js
 
 minify-css: start
 	@echo Minifying CSS
 	@mkdir $(OUT)/css
 	@$(LESS) -x src/css/main.css > $(OUT)/css/main.css
+	@$(LESS) -x src/css/options.css > $(OUT)/css/options.css
 
 manifest: start
 	@echo Creating manifest
