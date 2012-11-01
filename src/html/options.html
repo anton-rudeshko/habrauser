@@ -3,23 +3,58 @@
 <head>
     <meta charset="utf-8">
     <title>Habrauser</title>
+    <style type="text/css">
+
+        #wrapper {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        #status {
+            color: #01600a;
+            margin-top: 10px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .bordered {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+    </style>
 </head>
 <body>
-<div>
-    <label for="user-popup">
-        <input id="user-popup" type="checkbox">
-        Попап с информацией о пользователе
-    </label>
-    <label for="highlight-author">
-        <input id="highlight-author" type="checkbox">
-        Подсвечивать автора
-    </label>
-    <label for="highlight-comments">
-        <input id="highlight-comments" type="checkbox">
-        Подсвечивать топовые комментарии
-    </label>
 
-    <div id="status"></div>
+<div id="wrapper">
+    <h1>Опции</h1>
+
+    <p>Необходимо перезагрузить страницу хабра, чтобы изменения вступили в силу.</p>
+
+    <div class="bordered">
+        <input id="user-popup" type="checkbox">
+        <label for="user-popup">Попап с информацией о пользователе (по клику)</label>
+
+        <br>
+
+        <input id="highlight-author" type="checkbox">
+        <label for="highlight-author">Подсвечивать автора</label>
+
+        <br>
+
+        <input id="highlight-comments" type="checkbox" disabled title="Пока нет =(">
+        <label for="highlight-comments" title="Пока нет =(">Подсвечивать топовые комментарии</label>
+    </div>
+
+    <p class="center">
+        <a href="http://www.rudeshko.com">Anton Rudeshko</a>
+    </p>
+
+    <div id="status" class="center"></div>
+
 </div>
 <script type="text/javascript" src="../js/options.js"></script>
 </body>

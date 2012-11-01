@@ -24,7 +24,6 @@ function loadOptions() {
   loadCheckboxById('highlight-comments');
 }
 
-
 (function () {
   var i,
     inputs = document.querySelectorAll('input'),
