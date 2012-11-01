@@ -4,6 +4,7 @@ LESS=$(NODE) node_modules/less/bin/lessc
 
 OUT=out
 PIX=src/pix
+HTML=src/html
 VERSION=`cat src/version`
 MANIFEST_TEMPLATE=src/manifest.json
 
@@ -16,17 +17,23 @@ zip: copy-resources minify-resources manifest
 
 minify-resources: minify-js minify-css
 
-copy-resources: copy-pictures
+copy-resources: copy-pictures copy-html
 
 copy-pictures: start
 	@echo Copying pictures
 	@cp -r $(PIX) $(OUT)/
+
+copy-html: start
+	@echo Copying html
+	@cp -r $(HTML) $(OUT)/
 
 minify-js: start
 	@echo Minifying JS
 	@mkdir $(OUT)/js
 	@$(UJS) -o $(OUT)/js/main.js src/js/main.js
 	@$(UJS) -o $(OUT)/js/loader.js src/js/loader.js
+	@$(UJS) -o $(OUT)/js/loader.js src/js/background.js
+	@$(UJS) -o $(OUT)/js/loader.js src/js/options.js
 
 minify-css: start
 	@echo Minifying CSS
