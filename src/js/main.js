@@ -67,24 +67,36 @@
     return false;
   }
 
-  function hookPopup() {
+  function hookPopup(options) {
+    if (options['user-popup'] !== 'true') {
+      return;
+    }
+
     $('.content_left').delegate('a.username, .author a', 'click', displayUserPopup);
   }
 
-  function colorAuthor() {
+  function colorAuthor(options) {
+    if (options['highlight-author'] !== 'true') {
+      return;
+    }
+
     var authorLink = $('.infopanel .author a').attr('href');
     $('.content_left').find('a[href="' + authorLink + '"]').addClass('habrauser__author-comment').attr('title', 'Автор');
   }
 
-  function colorTopComments() {
+  function colorTopComments(options) {
+    if (options['highlight-comments'] !== 'true') {
+      return;
+    }
+
     // todo: implement
   }
 
   function onLoad() {
-    debugger;
-    colorAuthor();
-    colorTopComments();
-    hookPopup();
+    var options = $('#habrauser-injector').data('user-options');
+    colorAuthor(options);
+    colorTopComments(options);
+    hookPopup(options);
   }
 
   $(onLoad);

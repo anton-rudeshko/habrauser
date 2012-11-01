@@ -12,6 +12,9 @@
         }
     ],
     "options_page": "html/options.html",
+    "background": {
+        "scripts": ["js/background.js"]
+    },
     "icons": {
         "128": "pix/icon_128.png"
     },
