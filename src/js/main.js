@@ -81,6 +81,7 @@
   }
 
   function onLoad() {
+    debugger;
     colorAuthor();
     colorTopComments();
     hookPopup();

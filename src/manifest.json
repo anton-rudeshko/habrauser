@@ -11,6 +11,7 @@
             "matches": ["http://habrahabr.ru/*"]
         }
     ],
+    "options_page": "html/options.html",
     "icons": {
         "128": "pix/icon_128.png"
     },
