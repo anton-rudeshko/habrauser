@@ -1,8 +1,12 @@
-(function ($) {
+(function ($, Habrauser) {
   'use strict';
 
   var userCache = [],
     karmaScriptInjected = false;
+
+  function optionDisabled(option) {
+    return Habrauser[option] === false;
+  }
 
   function loadInfo(userLink, callback) {
     $.ajax({
@@ -67,16 +71,16 @@
     return false;
   }
 
-  function hookPopup(options) {
-    if (options['user-popup'] !== 'true') {
+  function hookPopup() {
+    if (optionDisabled('user-popup')) {
       return;
     }
 
     $('.content_left').delegate('a.username, .author a', 'click', displayUserPopup);
   }
 
-  function colorAuthor(options) {
-    if (options['highlight-author'] !== 'true') {
+  function colorAuthor() {
+    if (optionDisabled('highlight-author')) {
       return;
     }
 
@@ -84,8 +88,8 @@
     $('.content_left').find('a[href="' + authorLink + '"]').addClass('habrauser__author-comment').attr('title', 'Автор');
   }
 
-  function colorTopComments(options) {
-    if (options['highlight-comments'] !== 'true') {
+  function colorTopComments() {
+    if (optionDisabled('highlight-comments')) {
       return;
     }
 
@@ -93,12 +97,11 @@
   }
 
   function onLoad() {
-    var options = $('#habrauser-injector').data('user-options');
-    colorAuthor(options);
-    colorTopComments(options);
-    hookPopup(options);
+    colorAuthor();
+    colorTopComments();
+    hookPopup();
   }
 
   $(onLoad);
 
-}(jQuery));
+}(jQuery, window.Habrauser = window.Habrauser || {}));

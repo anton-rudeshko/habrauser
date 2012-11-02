@@ -1,21 +1,13 @@
-(function (chrome) {
-  var
-    extension = chrome.extension,
-    request = new XMLHttpRequest(),
-    urlToMain = extension.getURL('js/main.js'),
-    script, options;
-
-  request.open('GET', urlToMain, false);
+(function (chrome, document) {
+  var request = new XMLHttpRequest();
+  request.open('GET', chrome.extension.getURL('js/main.js'), false);
   request.send(null);
 
-  script = document.createElement('script');
-  script.id = "habrauser-injector";
-  script.type = "text/javascript";
-  script.text = request.responseText;
-
-  extension.sendRequest({method: "getOptions"}, function (response) {
-    script.setAttribute('data-user-options', JSON.stringify(response.options));
+  chrome.storage.sync.get(null, function (options) {
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.text = 'window.Habrauser = ' + JSON.stringify(options || {}) + ';' + request.responseText;
     document.body.appendChild(script);
   });
 
-}(chrome));
+}(chrome, document));

@@ -1,7 +1,7 @@
 {
     "name": "Хабраюзер",
     "description": "Несколько удобных инструментов для хабрапользователей",
-    "permissions": ["tabs", "http://habrahabr.ru/*"],
+    "permissions": ["tabs", "http://habrahabr.ru/*", "storage"],
     "version": "0.0.0.0",
     "manifest_version": 2,
     "content_scripts": [
@@ -12,9 +12,6 @@
         }
     ],
     "options_page": "html/options.html",
-    "background": {
-        "scripts": ["js/background.js"]
-    },
     "icons": {
         "128": "pix/icon_128.png"
     },

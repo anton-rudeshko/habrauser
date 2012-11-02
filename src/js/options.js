@@ -1,22 +1,28 @@
-(function (document, localStorage) {
-  var userPopup = 'user-popup',
-    highlightAuthor ='highlight-author',
-    highlightComments = 'highlight-comments',
-    saveTimeout;
+(function (document) {
 
-  function saveCheckboxById(id) {
-    localStorage[id] = document.getElementById(id).checked;
+  var defaults = {
+      'user-popup': true,
+      'highlight-author': true,
+      'highlight-comments': true
+    },
+    saveTimeout,
+    sync = chrome.storage.sync;
+
+  function saveCheckbox() {
+    var opts = {};
+    opts[this.id] = this.checked;
+    sync.set(opts, onSave);
   }
 
-  function loadCheckboxById(id) {
-    document.getElementById(id).checked = localStorage[id] === 'true';
+  function isDefined(obj) {
+    return obj !== null && typeof obj !== 'undefined';
   }
 
-  function saveOptions() {
-    saveCheckboxById(userPopup);
-    saveCheckboxById(highlightAuthor);
-    saveCheckboxById(highlightComments);
+  function load(options, id) {
+    document.getElementById(id).checked = isDefined(options[id]) ? options[id] : defaults[id];
+  }
 
+  function onSave() {
     var status = document.getElementById('status');
     status.innerHTML = 'Сохранено';
     clearTimeout(saveTimeout);
@@ -25,18 +31,14 @@
     }, 750);
   }
 
-  function loadOptions() {
-    loadCheckboxById(userPopup);
-    loadCheckboxById(highlightAuthor);
-    loadCheckboxById(highlightComments);
-  }
+  sync.get(null, function (options) {
+    var i,
+      inputs = document.querySelectorAll('input'),
+      length = inputs.length;
 
-  var i,
-    inputs = document.querySelectorAll('input'),
-    length = inputs.length;
-  for (i = 0; i < length; i++) {
-    inputs[i].addEventListener('change', saveOptions);
-  }
-
-  loadOptions();
-}(document, localStorage));
+    for (i = 0; i < length; i++) {
+      inputs[i].addEventListener('change', saveCheckbox, false);
+      load(options, inputs[i].id);
+    }
+  });
+}(document));
