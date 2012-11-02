@@ -7,8 +7,8 @@
     localStorage[id] = document.getElementById(id).checked;
   }
 
-  function loadCheckboxById(id, defaultValue) {
-    document.getElementById(id).checked = (localStorage[id] || defaultValue) === 'true';
+  function loadCheckboxById(id) {
+    document.getElementById(id).checked = localStorage[id] === 'true';
   }
 
   function saveOptions() {
@@ -24,9 +24,9 @@
   }
 
   function loadOptions() {
-    loadCheckboxById(userPopup, 'true');
-    loadCheckboxById(highlightAuthor, 'true');
-    loadCheckboxById(highlightComments, 'false');
+    loadCheckboxById(userPopup);
+    loadCheckboxById(highlightAuthor);
+    loadCheckboxById(highlightComments);
   }
 
   var i,
