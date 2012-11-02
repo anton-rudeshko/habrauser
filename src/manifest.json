@@ -1,6 +1,6 @@
 {
-    "name": "Habrauser popup",
-    "description": "Open user info in a popup and other useful tools",
+    "name": "Хабраюзер",
+    "description": "Несколько удобных инструментов для хабрапользователей",
     "permissions": ["tabs", "http://habrahabr.ru/*"],
     "version": "0.0.0.0",
     "manifest_version": 2,
