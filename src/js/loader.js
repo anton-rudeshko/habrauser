@@ -1,5 +1,7 @@
-(function (extension) {
-  var request = new XMLHttpRequest(),
+(function (chrome) {
+  var
+    extension = chrome.extension,
+    request = new XMLHttpRequest(),
     urlToMain = extension.getURL('js/main.js'),
     script, options;
 
@@ -16,4 +18,4 @@
     document.body.appendChild(script);
   });
 
-}(chrome.extension));
+}(chrome));
