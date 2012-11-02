@@ -26,3 +26,13 @@
 .link:hover {
   color: #999;
 }
+
+.option {
+  margin: 1em 0;
+}
+
+.description {
+  color: #666;
+  font-size: 14px;
+  padding-left: 25px;
+}

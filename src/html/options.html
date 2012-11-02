@@ -10,22 +10,37 @@
 <div id="wrapper">
     <h1>Опции</h1>
 
-    <p>Необходимо перезагрузить страницу хабра, чтобы изменения вступили в силу.</p>
+    <div>
+        <div class="option">
+            <input id="user-popup" type="checkbox">
+            <label for="user-popup">Попап</label>
 
-    <div class="bordered">
-        <input id="user-popup" type="checkbox">
-        <label for="user-popup">Попап с информацией о пользователе (по клику)</label>
+            <div class="description">
+                Показывать по клику на имени пользователя всплывающее окошко с краткой информацией о пользователе
+                с возможностью голосования за карму.
+            </div>
+        </div>
 
-        <br>
+        <div class="option">
+            <input id="highlight-author" type="checkbox">
+            <label for="highlight-author">Подсвечивать автора</label>
 
-        <input id="highlight-author" type="checkbox">
-        <label for="highlight-author">Подсвечивать автора</label>
+            <div class="description">
+                Подсвечивать автора поста или вопроса в комментариях красным цветом.
+            </div>
+        </div>
 
-        <br>
+        <div class="option">
+            <input id="highlight-comments" type="checkbox">
+            <label for="highlight-comments">Подсвечивать топовые комментарии</label>
 
-        <input id="highlight-comments" type="checkbox" disabled title="Пока нет =(">
-        <label for="highlight-comments" title="Пока нет =(">Подсвечивать топовые комментарии</label>
+            <div class="description">
+                Подсветить 20% комментариев (от 2 до 15) с наибольшим количеством голосов.
+            </div>
+        </div>
     </div>
+
+    <p>Необходимо перезагрузить страницу хабра, чтобы изменения вступили в силу.</p>
 
     <p class="center">
         <a class="link" href="http://www.rudeshko.com">&copy; 2012 Anton Rudeshko</a>
