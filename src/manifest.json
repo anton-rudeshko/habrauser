@@ -12,8 +12,12 @@
         }
     ],
     "options_page": "html/options.html",
+    "background": {
+        "scripts": ["js/events.js"],
+        "persistent": false
+    },
     "icons": {
         "128": "pix/icon_128.png"
     },
-    "web_accessible_resources": ["js/main.js"]
+    "web_accessible_resources": ["js/main.js", "html/update.html"]
 }
