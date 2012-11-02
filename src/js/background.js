@@ -1,12 +1,12 @@
 (function (localStorage) {
 
-  function loadStorage(key, defaultValue) {
+  function putDefault(key, defaultValue) {
     localStorage[key] = localStorage[key] || defaultValue;
   }
 
-  loadStorage('user-popup', 'true');
-  loadStorage('highlight-author', 'true');
-  loadStorage('highlight-comments', 'false');
+  putDefault('user-popup', 'true');
+  putDefault('highlight-author', 'true');
+//  putDefault('highlight-comments', 'true');
 
   function loadOptions() {
     var key, options = {};
