@@ -1,7 +1,8 @@
 (function (document, localStorage) {
   var userPopup = 'user-popup',
     highlightAuthor ='highlight-author',
-    highlightComments = 'highlight-comments';
+    highlightComments = 'highlight-comments',
+    saveTimeout;
 
   function saveCheckboxById(id) {
     localStorage[id] = document.getElementById(id).checked;
@@ -18,7 +19,8 @@
 
     var status = document.getElementById('status');
     status.innerHTML = 'Сохранено';
-    setTimeout(function () {
+    clearTimeout(saveTimeout);
+    saveTimeout = setTimeout(function () {
       status.innerHTML = '';
     }, 750);
   }
