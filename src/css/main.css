@@ -28,6 +28,31 @@
 
 }
 
+.habrauser__update {
+  z-index: 99999;
+  font-size: 14px;
+  width: 100%;
+  height: auto;
+  padding: 10px 0;
+
+  position: absolute;
+  top: 0;
+  margin-bottom: 50px;
+
+  color: black;
+  background: #fdf5e6;
+  border-bottom: 1px dashed #666;
+}
+
+.habrauser__update .habrauser__update-title,
+.habrauser__update .habrauser__update-version {
+  font-weight: bold;
+}
+
+.habrauser__update_details-link {
+  padding-left: 10px;
+}
+
 .user_header{padding-top:10px;padding-bottom:5px;margin-top:-17px;position: relative;}
 
 .user_header a.avatar{display:block;float:left;margin-right:11px;position: relative;}
