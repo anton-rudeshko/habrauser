@@ -127,8 +127,6 @@
       return new CommentItem(this);
     };
 
-    debugger;
-
     var comments = $('.comment_item, .answer').map(toCommentItem).get();
     comments = $.grep(comments, positiveScore);
     comments.sort(commentsDescending);
