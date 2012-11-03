@@ -19,6 +19,7 @@
     element.innerHTML = html;
 
     document.body.appendChild(element);
+    document.body.style.marginTop = element.childNodes[0].offsetHeight;
   }
 
   var sync = chrome.storage.sync;
