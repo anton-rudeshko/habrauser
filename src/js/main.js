@@ -76,7 +76,7 @@
       return;
     }
 
-    $('.content_left').delegate('a.username, .author a, .comment_head .info a', 'click', displayUserPopup);
+    $('.content_left').delegate('a.username, .author a, .comment_head .info a, a.user_link', 'click', displayUserPopup);
   }
 
   function colorAuthor() {
