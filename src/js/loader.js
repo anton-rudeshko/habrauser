@@ -19,7 +19,7 @@
     element.innerHTML = html;
 
     document.body.appendChild(element);
-    document.body.style.marginTop = element.childNodes[0].offsetHeight;
+    document.body.style.marginTop = element.childNodes[0].offsetHeight + 'px';
   }
 
   var sync = chrome.storage.sync;
