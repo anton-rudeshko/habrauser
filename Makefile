@@ -32,7 +32,7 @@ minify-js: start
 	@mkdir $(OUT)/js
 	@$(UJS) -o $(OUT)/js/main.js src/js/main.js
 	@$(UJS) -o $(OUT)/js/loader.js src/js/loader.js
-	@$(UJS) -o $(OUT)/js/background.js src/js/background.js
+	@$(UJS) -o $(OUT)/js/events.js src/js/events.js
 	@$(UJS) -o $(OUT)/js/options.js src/js/options.js
 
 minify-css: start
