@@ -93,8 +93,10 @@
       return;
     }
 
-    var positiveScore = function positiveScore(item) {
-      return item.score > 0
+    var scoreIsMoreThan = function moreThan(score) {
+      return function (item) {
+        return item.score > score;
+      };
     };
 
     var commentsDescending = function commentsDescending(comment1, comment2) {
@@ -128,7 +130,7 @@
     };
 
     var comments = $('.comment_item, .answer').map(toCommentItem).get();
-    comments = $.grep(comments, positiveScore);
+    comments = $.grep(comments, scoreIsMoreThan(1));
     comments.sort(commentsDescending);
 
     var highlightFactor = .20;
