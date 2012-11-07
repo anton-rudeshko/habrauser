@@ -84,8 +84,22 @@
       return;
     }
 
-    var authorLink = $('.infopanel .author a').attr('href');
-    $('.content_left').find('a[href="' + authorLink + '"]').addClass('habrauser__author-comment').attr('title', 'Автор');
+    var $authors = $('.infopanel .author a');
+    if (!$authors.length) {
+      return;
+    }
+
+    var $author = $authors.eq(0),
+      authorName = $author.text().trim(),
+      authorLink = $author.attr('href'),
+
+      byAuthorName = function () {
+        return $(this).text().trim() === authorName;
+      },
+
+      authorMentions = $('.content_left a[href="' + authorLink + '"]').filter(byAuthorName);
+
+    authorMentions.addClass('habrauser__author-comment').attr('title', 'Автор');
   }
 
   function colorTopComments() {
