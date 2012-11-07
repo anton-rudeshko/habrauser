@@ -108,10 +108,8 @@
         info = $el.children('.info'),
         score = +info.find('.score').text();
 
-      this.comment = $el;
       this.info = info;
       this.score = isNaN(score) ? 0 : score;
-      this.message = $el.children('.message');
     }
 
     CommentItem.prototype = {
@@ -119,8 +117,6 @@
 
       applyOpacity: function (opacity) {
         var color = 'rgba(' + this.MAIN_COLOR + ', ' + opacity + ')';
-
-        this.message.css('background-color', color);
         this.info.css('background-color', color);
       }
     };
@@ -138,8 +134,6 @@
     count = Math.max(count, 2);
     count = Math.min(count, 15);
     comments = comments.slice(0, count);
-
-    // todo: filter low score
 
     function applyColorToComments(comments) {
       var maxOpacity = 1.0,
